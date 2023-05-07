@@ -1,0 +1,70 @@
+import fetch from './fetch'
+
+export const fetchArticles = ({ page = 1, pageSize = 10 } = {}) => {
+  return fetch(`/article`, {
+    pageNo: page,
+    pageSize: pageSize
+  })
+}
+
+/**
+ * 推荐文章
+ */
+export const fetchTopArticles = () => {
+  return fetch(`/article/top`)
+}
+/**
+ * 文章详情
+ */
+export const articelDetail = uuid => {
+  return fetch(`/article/detail/${uuid}`)
+}
+
+/**
+ * 获取分类标签
+ */
+export const fetchTags = () => {
+  return fetch('/tag')
+}
+
+//搜索
+export const search = params => {
+  return fetch('/article/search', params, 'post')
+}
+
+/**
+ *
+ * @param {评论} _id
+ */
+export const commentArticle = (
+  _id,
+  { content = '', nickName = '', userEmail = '' } = {}
+) => {
+  return fetch(
+    '/comment/add',
+    {
+      _id: _id,
+      content: content,
+      nickName: nickName,
+      userEmail: userEmail
+    },
+    'post'
+  )
+}
+
+/**
+ *
+ * @param {*} _id
+ */
+export const fetchCommentsByArticle = _id => {
+  return fetch('/comment/byArticle', {
+    _id
+  })
+}
+
+/**
+ * 获取最新文章
+ */
+export const fetchLatestArticle = () => {
+  return fetch('/article/latest')
+}
