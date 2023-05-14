@@ -8,7 +8,7 @@ const instance = axios.create()
 instance.defaults.withCredentials = true
 instance.defaults.baseURL = APIURL
 // config.headers['Accept'] = 'application/vnd.dpexpo.v1+json'
-instance.defaults.headers.Accept='application/vnd.dpexpo.v1+json'
+// instance.defaults.headers.Accept='application/vnd.dpexpo.v1+json'
 
 export default async (url = '', data, type = 'get', config = {}) => {
   type = type.toLowerCase()
