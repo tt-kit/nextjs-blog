@@ -1,23 +1,26 @@
 import Head from "next/head";
-import Link from "next/link";
-import styles from "../styles/Home.module.css";
+// import styles from "../styles/Home.module.css";
 import { fetchArticles } from "@/services";
+import ArtilcleListItem from "@/components/ArticleListItem";
 
 export default function Home({ posts }) {
   return (
-    <div className={styles.container}>
+    <div className=" flex">
       <Head>
         <title>博客</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
-        <ul>
+      <div className=" border-gray-400 w-7/12">
+        <ul className=" p-2.5">
           {posts.map((post) => (
-            <li key={post.uuid}>
-              <Link href={`/article/detail/${post.uuid}`}>{post.title}</Link>
-            </li>
+            <ArtilcleListItem post={post} key={post.uuid}/>
           ))}
         </ul>
+      </div>
+      <div className=" flex-auto relative">
+        <div className=" bg-white p-4 shadow-sm max-md sticky top-12">
+          <div className=" text-xl">1asdfsfaa</div>
+        </div>
       </div>
     </div>
   );
