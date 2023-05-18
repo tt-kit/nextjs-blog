@@ -10,7 +10,7 @@ export default function Home({ posts }) {
         <title>博客</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className=" border-gray-400 w-7/12">
+      <div className=" border-gray-100 w-8/12 border-r">
         <ul className=" p-2.5">
           {posts.map((post) => (
             <ArtilcleListItem post={post} key={post.uuid}/>
@@ -18,7 +18,7 @@ export default function Home({ posts }) {
         </ul>
       </div>
       <div className=" flex-auto relative">
-        <div className=" bg-white p-4 shadow-sm max-md sticky top-12">
+        <div className="p-4 border-b border-gray-100 max-md sticky top-12">
           <div className=" text-xl">1asdfsfaa</div>
         </div>
       </div>

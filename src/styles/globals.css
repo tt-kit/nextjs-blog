@@ -20,3 +20,11 @@ body {
 abbr[title] {
   text-decoration: none;
 }
+
+.markdown-body{
+  background: transparent !important;
+}
+
+:root {
+  --primary-color: #715c5c;
+}
