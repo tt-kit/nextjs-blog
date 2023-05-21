@@ -1,10 +1,10 @@
 import Head from "next/head";
 // import styles from "../styles/Home.module.css";
-import { fetchArticles } from "@/services";
+import { fetchArticles, fetchTopArticles } from "@/services";
 import ArtilcleListItem from "@/components/ArticleListItem";
 import ArticleRankingList from "@/components/ArticleRankingList";
 
-export default function Home({ posts }) {
+export default function Home({ posts ,topPosts}) {
   return (
     <div className=" flex">
       <Head>
@@ -20,19 +20,23 @@ export default function Home({ posts }) {
       </div>
       <div className="w-4/12 hidden relative sm:block">
        {/* 推荐文章 */}
-       <ArticleRankingList posts={posts} />
+       <ArticleRankingList posts={topPosts} />
       </div>
     </div>
   );
 }
 
 export async function getStaticProps() {
-  const res = await fetchArticles();
+  const res = await fetchArticles({pageSize:100});
+  const topRes = await fetchTopArticles()
   const posts = res?.data?.data || [];
-  console.log("posts", posts);
+  const topPosts = topRes?.data || []
+  // console.log('top',topPosts)
+  // console.log("posts", posts);
   return {
     props: {
       posts,
+      topPosts,
     },
   };
 }
