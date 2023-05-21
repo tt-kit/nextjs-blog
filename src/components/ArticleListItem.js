@@ -6,7 +6,7 @@ export default function ArtilcleListItem(props) {
   return (
     <li
       key={post.uuid}
-      className=" p-4 mb-2 border-b border-gray-200 hover:bg-slate-100"
+      className=" p-4 mb-2 border-b border-gray-100 hover:bg-slate-100"
     >
       <Link href={`/article/detail/${post.uuid}`}>
         <div className=" text-lg font-bold mb-2">{post.title}</div>

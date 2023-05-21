@@ -2,6 +2,7 @@ import Head from "next/head";
 // import styles from "../styles/Home.module.css";
 import { fetchArticles } from "@/services";
 import ArtilcleListItem from "@/components/ArticleListItem";
+import ArticleRankingList from "@/components/ArticleRankingList";
 
 export default function Home({ posts }) {
   return (
@@ -10,17 +11,16 @@ export default function Home({ posts }) {
         <title>博客</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className=" border-gray-100 w-8/12 border-r">
+      <div className=" border-gray-100 flex-1">
         <ul className=" p-2.5">
           {posts.map((post) => (
             <ArtilcleListItem post={post} key={post.uuid}/>
           ))}
         </ul>
       </div>
-      <div className=" flex-auto relative">
-        <div className="p-4 border-b border-gray-100 max-md sticky top-12">
-          <div className=" text-xl">1asdfsfaa</div>
-        </div>
+      <div className="w-4/12 hidden relative sm:block">
+       {/* 推荐文章 */}
+       <ArticleRankingList posts={posts} />
       </div>
     </div>
   );
