@@ -1,6 +1,17 @@
+import { storage } from "@/utils/local-storage";
 import Link from "next/link";
 
 export default function NavHeader() {
+  const toggleThemeDark = () => {
+    const theme = storage.getItem("theme");
+    if (theme === "dark") {
+      document.documentElement.classList.remove("dark");
+      storage.setItem("theme", "light");
+    } else {
+      storage.setItem("theme", "dark");
+      document.documentElement.classList.add("dark");
+    }
+  };
   return (
     <div className="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white/95 supports-backdrop-blur:bg-white/60 dark:bg-transparent">
       <div className="nav-header container mx-auto max-w-5xl h-12 flex items-center justify-between">
@@ -19,41 +30,46 @@ export default function NavHeader() {
           </nav>
 
           <div className="flex items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800">
-            <span className="dark:hidden cursor-pointer">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6  stroke-base-theme-100 fill-base-theme"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-                />
-              </svg>
-            </span>
+            <div className="btn" onClick={toggleThemeDark}>
+              <span className="dark:hidden cursor-pointer">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6  stroke-base-theme-100 fill-base-theme"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+                  />
+                </svg>
+              </span>
 
-            <span className="hidden dark:inline cursor-pointer">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
-                />
-              </svg>
-            </span>
+              <span className="hidden dark:inline cursor-pointer">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
+                  />
+                </svg>
+              </span>
+            </div>
 
-            <a className="ml-6 block text-base-theme cursor-pointer hover:text-base-theme-100 dark:hover:text-slate-300" href="https://github.com/HelTi">
+            <a
+              className="ml-6 block text-base-theme cursor-pointer hover:text-base-theme-100 dark:hover:text-slate-300"
+              href="https://github.com/HelTi"
+            >
               <svg
                 viewBox="0 0 16 16"
                 className="w-5 h-5"
