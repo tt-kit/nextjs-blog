@@ -25,6 +25,14 @@ abbr[title] {
   background: transparent !important;
 }
 
+.dark .markdown-body{
+  color: rgb(51, 65, 85);
+}
+
+.dark .markdown-body pre{
+  background: #0b0b0b;
+}
+
 :root {
   --primary-color: #715c5c;
 }

@@ -1,7 +1,7 @@
 export default function About() {
   return (
     <>
-      <div className=" flex mt-2 p-4 backdrop-blur-sm bg-white/60 drop-shadow-md rounded-md">
+      <div className=" flex mt-2 p-4 backdrop-blur-sm bg-white/60 drop-shadow-md rounded-md dark:bg-slate-950">
         <div className=" w-80 p-4 ">
           <div className=" w-24 h-24 mx-auto">
             <img

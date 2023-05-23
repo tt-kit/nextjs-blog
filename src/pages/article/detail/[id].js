@@ -2,7 +2,7 @@ import { articelDetail, fetchArticles } from "@/services";
 
 export default function ArticleDetail({post}) {
   return <div className=" p-4">
-    <h2 className=" text-3xl font-bold mb-4">{post.title}</h2>
+    <h2 className=" text-3xl font-bold mb-4 dark:text-slate-500">{post.title}</h2>
     <div className="markdown-body" dangerouslySetInnerHTML={{__html:post.content}}></div>
   </div>;
 }
