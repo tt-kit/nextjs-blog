@@ -1,9 +1,9 @@
 export default function About() {
   return (
     <>
-      <div className=" flex mt-2 p-4 backdrop-blur-sm bg-white/60 drop-shadow-md rounded-md dark:bg-slate-950">
+      <div className=" mt-2 flex  rounded-md bg-white/60 p-4 drop-shadow-md backdrop-blur-sm dark:bg-slate-950">
         <div className=" w-80 p-4 ">
-          <div className=" w-24 h-24 mx-auto">
+          <div className=" mx-auto h-24 w-24">
             <img
               className=" rounded-full"
               src="/images/l.png"
@@ -12,27 +12,27 @@ export default function About() {
               }}
             />
           </div>
-          <p className=" text-center mt-4 text-lg text-base-theme">Long</p>
-          <p className=" mt-4 text-center text-base antialiased text-base-theme-100">
+          <p className=" mt-4 text-center text-lg text-base-theme">Long</p>
+          <p className=" mt-4 text-center text-base text-base-theme-100 antialiased">
             长风破浪会有时，直挂云帆济沧海
           </p>
         </div>
         <div className=" flex-1 p-2">
           <div className=" mb-4">
-            <h2 className=" text-base-theme text-base mb-2">关于博客</h2>
-            <p className=" text-gray-400 text-sm">
+            <h2 className=" mb-2 text-base text-base-theme">关于博客</h2>
+            <p className=" text-sm text-gray-400">
               这是一个基于个人学习总结的博客
             </p>
           </div>
           <div className="mb-4">
-            <h2 className=" text-base-theme text-base mb-2">更多</h2>
+            <h2 className=" mb-2 text-base text-base-theme">更多</h2>
             <div className="content flex">
-              <div className=" text-base-theme mr-4 bg-white/80 w-32 p-2 rounded-md backdrop-blur-sm drop-shadow-sm hover:drop-shadow-lg">
+              <div className=" mr-4 w-32 rounded-md bg-white/80 p-2 text-base-theme drop-shadow-sm backdrop-blur-sm hover:drop-shadow-lg">
                 <a href="https://github.com/HelTi">
                   <div className=" flex items-center">
                     <svg
                       viewBox="0 0 16 16"
-                      className="w-5 h-5 mr-4"
+                      className="mr-4 h-5 w-5"
                       fill="currentColor"
                       aria-hidden="true"
                       data-immersive-translate-effect="1"
@@ -44,14 +44,14 @@ export default function About() {
                   </div>
                 </a>
               </div>
-              <div className=" text-base-theme bg-white/80 w-32 p-2 rounded-md backdrop-blur-sm drop-shadow-sm hover:drop-shadow-lg">
+              <div className=" w-32 rounded-md bg-white/80 p-2 text-base-theme drop-shadow-sm backdrop-blur-sm hover:drop-shadow-lg">
                 <a href="mailto:helti@qq.com">
                   <div className=" flex items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
-                      className="w-5 h-5 mr-4"
+                      className="mr-4 h-5 w-5"
                       aria-hidden="true"
                       strokeWidth={1.5}
                       stroke="currentColor"
