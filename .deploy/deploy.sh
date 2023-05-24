@@ -1,10 +1,10 @@
 #!/bin/bash
 
 echo "拉取代码..."
-git reset --hard origin/master
+git reset --hard origin/main
 git clean -f
 git pull
-git checkout master
+git checkout main
 echo "开始安装依赖..."
 npm install
 echo "依赖安装结束..."
