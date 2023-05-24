@@ -4,6 +4,7 @@ import Link from "next/link";
 export default function NavHeader() {
   const toggleThemeDark = () => {
     const theme = storage.getItem("theme");
+    console.log('t',theme)
     if (theme === "dark") {
       document.documentElement.classList.remove("dark");
       storage.setItem("theme", "light");
@@ -13,7 +14,7 @@ export default function NavHeader() {
     }
   };
   return (
-    <div className="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white/95 supports-backdrop-blur:bg-white/60 dark:bg-transparent">
+    <div className="sticky top-0 z-40 w-full backdrop-blur  flex-none transition-colors duration-500 ">
       <div className="nav-header container mx-auto max-w-5xl h-12 flex items-center justify-between">
         <div>
           <Link href={"/"}>
@@ -24,7 +25,7 @@ export default function NavHeader() {
           <nav className="text-sm leading-6 font-semibold text-slate-700 dark:text-slate-200">
             <ul className="flex space-x-8">
               <li>
-                <Link href={"/about"}>关于</Link>
+                <Link className="dark:text-white" href={"/about"}>关于</Link>
               </li>
             </ul>
           </nav>

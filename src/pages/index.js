@@ -8,6 +8,7 @@ const pageSize = 10;
 export default function Home({ posts, topPosts }) {
   const [articles, setArticles] = useState(posts);
   const [pageNo, setPageNo] = useState(1);
+  const [noMoreData, setNoMoreData] = useState(false)
 
   useEffect(() => {
     if (pageNo > 1) {
@@ -17,12 +18,22 @@ export default function Home({ posts, topPosts }) {
     async function getArticles() {
       const res = await fetchArticles({ pageSize: pageSize, pageNo });
       const posts = res?.data?.data || [];
-      setArticles([...articles, ...posts]);
+      if(posts.length){
+        setArticles([...articles, ...posts]);
+      }else{
+        setNoMoreData(true)
+      }
+      
     }
   }, [pageNo]);
 
   const onLoadNextPageData = () => {
-    setPageNo(pageNo + 1);
+    if(noMoreData) {
+      alert('没有更多数据了！')
+    }else{
+      setPageNo(pageNo + 1);
+    }
+    
   };
   return (
     <div className=" flex">
@@ -38,7 +49,7 @@ export default function Home({ posts, topPosts }) {
         </ul>
         <div
           onClick={onLoadNextPageData}
-          className=" bg-blue-200 p-2 text-center text-gray-500 rounded-md cursor-pointer"
+          className=" bg-white/80 dark:bg-slate-900 backdrop-blur-sm hover:drop-shadow-sm p-2 text-center text-gray-500 rounded-md cursor-pointer text-sm"
         >
           加载更多
         </div>
