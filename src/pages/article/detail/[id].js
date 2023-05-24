@@ -1,10 +1,25 @@
+import MarkdownNavbar from "markdown-navbar";
 import { articelDetail, fetchArticles } from "@/services";
 
-export default function ArticleDetail({post}) {
-  return <div className=" p-4">
-    <h2 className=" text-3xl font-bold mb-4 dark:text-slate-500">{post.title}</h2>
-    <div className="markdown-body" dangerouslySetInnerHTML={{__html:post.content}}></div>
-  </div>;
+export default function ArticleDetail({ post }) {
+  return (
+    <div className=" flex p-4">
+      <div className="article-detail w-0 flex-1">
+        <h2 className=" mb-4 text-3xl  font-bold dark:text-slate-500">
+          {post.title}
+        </h2>
+        <div
+          className="markdown-body"
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        ></div>
+      </div>
+      <div className=" relative hidden w-4/12 sm:hidden md:block">
+        <div className="navgation sticky top-12">
+          <MarkdownNavbar source={post.markdown} ordered={false} />
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export async function getStaticPaths() {
@@ -13,7 +28,7 @@ export async function getStaticPaths() {
   const paths = posts.map((post) => ({
     params: { id: post.uuid },
   }));
-  return { paths, fallback: 'blocking' };
+  return { paths, fallback: "blocking" };
 }
 
 export async function getStaticProps({ params }) {

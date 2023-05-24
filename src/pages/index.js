@@ -8,7 +8,7 @@ const pageSize = 10;
 export default function Home({ posts, topPosts }) {
   const [articles, setArticles] = useState(posts);
   const [pageNo, setPageNo] = useState(1);
-  const [noMoreData, setNoMoreData] = useState(false)
+  const [noMoreData, setNoMoreData] = useState(false);
 
   useEffect(() => {
     if (pageNo > 1) {
@@ -18,22 +18,20 @@ export default function Home({ posts, topPosts }) {
     async function getArticles() {
       const res = await fetchArticles({ pageSize: pageSize, pageNo });
       const posts = res?.data?.data || [];
-      if(posts.length){
+      if (posts.length) {
         setArticles([...articles, ...posts]);
-      }else{
-        setNoMoreData(true)
+      } else {
+        setNoMoreData(true);
       }
-      
     }
   }, [pageNo]);
 
   const onLoadNextPageData = () => {
-    if(noMoreData) {
-      alert('没有更多数据了！')
-    }else{
+    if (noMoreData) {
+      alert("没有更多数据了！");
+    } else {
       setPageNo(pageNo + 1);
     }
-    
   };
   return (
     <div className=" flex">
@@ -41,7 +39,7 @@ export default function Home({ posts, topPosts }) {
         <title>博客</title>
         <link rel="icon" href="/helogo.png" />
       </Head>
-      <div className=" border-gray-100 flex-1">
+      <div className=" flex-1 border-gray-100">
         <ul className=" p-2.5">
           {articles.map((post) => (
             <ArtilcleListItem post={post} key={post.uuid} />
@@ -49,12 +47,12 @@ export default function Home({ posts, topPosts }) {
         </ul>
         <div
           onClick={onLoadNextPageData}
-          className=" bg-white/80 dark:bg-slate-900 backdrop-blur-sm hover:drop-shadow-sm p-2 text-center text-gray-500 rounded-md cursor-pointer text-sm"
+          className=" cursor-pointer rounded-md bg-white/80 p-2 text-center text-sm text-gray-500 backdrop-blur-sm hover:drop-shadow-sm dark:bg-slate-900"
         >
           加载更多
         </div>
       </div>
-      <div className="w-4/12 hidden relative sm:block">
+      <div className="relative hidden w-4/12 sm:hidden md:block">
         {/* 推荐文章 */}
         <ArticleRankingList posts={topPosts} />
       </div>
