@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary-color: #715c5c;
+  --primary-bg: #f6f8fa;
+  --primary-bg-black: #08080B;
+  --primary-font-dark-color:#9BA2AF;
+  --primary-blue:#007fff;
+}
 
 .dark {
   color-scheme: dark;
@@ -26,13 +33,47 @@ abbr[title] {
 }
 
 .dark .markdown-body{
-  color: rgb(51, 65, 85);
+  color: var(--primary-font-dark-color);
 }
 
 .dark .markdown-body pre{
   background: #0b0b0b;
 }
 
-:root {
-  --primary-color: #715c5c;
+/* 文章目录样式 */
+
+/* .markdown-navigation{
+  padding-left: 0.5rem;
+} */
+
+.markdown-navigation .title-anchor.active {
+  background: var(--primary-bg) !important;
+  border-radius: 4px;
+}
+
+.markdown-navigation .title-anchor {
+  color: var(--primary-bg-black);
+  padding: 0.3em;
+  margin: 0 !important;
+}
+.markdown-navigation .title-anchor:hover{
+  border-radius: 4px;
+  background: var(--primary-bg) !important;
+}
+
+.dark .markdown-navigation .title-anchor{
+  color: var(--primary-font-dark-color);
+}
+.dark .markdown-navigation .title-anchor.active {
+  background: var(--primary-bg-black) !important;
+}
+
+.dark .markdown-navigation .title-level2{
+  color: var(--primary-font-dark-color)
+}
+
+.dark .markdown-navigation .title-anchor:hover{
+  border-radius: 4px;
+  background: var(--primary-bg-black) !important;
+  color: var(--primary-blue) !important;
 }

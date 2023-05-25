@@ -25,7 +25,7 @@ export default function NavHeader() {
           <nav className="text-sm leading-6 font-semibold text-slate-700 dark:text-slate-200">
             <ul className="flex space-x-8">
               <li>
-                <Link className="dark:text-white" href={"/about"}>关于</Link>
+                <Link className=" dark:text-slate-400" href={"/about"}>关于</Link>
               </li>
             </ul>
           </nav>
@@ -49,7 +49,7 @@ export default function NavHeader() {
                 </svg>
               </span>
 
-              <span className="hidden dark:inline cursor-pointer">
+              <span className="hidden dark:inline cursor-pointer dark:text-slate-400">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

@@ -9,8 +9,8 @@ export default function ArtilcleListItem(props) {
       className=" p-4 mb-2 border-b border-gray-100 bg-white dark:bg-transparent dark:hover:bg-slate-950 dark:border-slate-500"
     >
       <Link href={`/article/detail/${post.uuid}`}>
-        <div className=" text-lg font-bold mb-2 dark:text-slate-500">{post.title}</div>
-        <div className=" text-gray-700 dark:text-slate-700 text-base font-normal">
+        <div className=" text-lg font-bold mb-2 dark:text-slate-400">{post.title}</div>
+        <div className=" text-gray-700 dark:text-slate-500 text-base font-normal">
           {post.excerpt}
         </div>
         <div>
