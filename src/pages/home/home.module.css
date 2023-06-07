@@ -1,0 +1,12 @@
+.draggable {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    cursor: move;
+  }
+  
+  .collided {
+    border: 2px solid red;
+  }
+  
